@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:ecom_firebase/const/AppColors.dart';
+import 'package:ecom_firebase/ui/registrationScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,7 +17,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-   Timer(Duration(seconds: 3),()=>Navigator.push(context, CupertinoPageRoute(builder:(_)=>LoginScreen())));
+   Timer(Duration(seconds: 3),()=>Navigator.push(context, CupertinoPageRoute(builder:(_)=>RegistrationScreen())));
     super.initState();
   }
 

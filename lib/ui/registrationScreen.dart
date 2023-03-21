@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../const/AppColors.dart';
 import 'loginScreen.dart';
@@ -28,14 +29,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         Navigator.push(context, CupertinoPageRoute(builder: (_)=>LoginScreen()));
       }
       else{
-        print("Something is Wrong");
+        Fluttertoast.showToast(msg: "Something is wrong");
       }
 
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
+        Fluttertoast.showToast(msg: "The password provided is too weak.");
       } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+        Fluttertoast.showToast(msg: "The account already exists for that email.");
       }
     } catch (e) {
       print(e);
@@ -96,7 +97,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       ),
                     ),
                     Text(
-                      "Sign Up",
+                      "Sign Up-Registration",
                       style: TextStyle(fontSize: 22.sp, color: Colors.white),
                     ),
                   ],
@@ -249,7 +250,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           height: 56.h,
                           child: ElevatedButton(
                             onPressed: () {
-                             // signUp();
+                              signUp();
                             },
                             child: Text(
                               "Continue",
